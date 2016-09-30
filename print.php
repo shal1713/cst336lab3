@@ -1,42 +1,68 @@
 <?php
 
-function printBoard($players){
+$suits = array("clubs", "diamonds", "hearts", "spades");
+
+function printBoard(){
+    global $players, $hands;
     echo "<table>";
     
+    echo " <br /> <br /> <br />";
     for($i = 0; $i < count($players); $i++){
-        printPlayer($players, $i);
+        echo "<tr>";
+        
+        echo "<td>";
+            printPlayer($i);
+        echo "</td> <td>";
+            printHand($i);
+        echo "</td> <td>";
+            printScore($i);
+        echo "</td>";
+        
+        echo "</tr>";
     }
     
     echo "</table>";
+    
+    printWinner(determineWinner());
 }
 
-function printPlayer($players, $i){
-    
+function printPlayer($i){
+    global $players;
+    echo $players[$i];
 }
 
-function printHand($hand, $i){
-    
+function printHand($i){
+    global $hands;
+    for($j = 0; $j < count($hands[$i]); $j++){
+        $suit = getCardSuit($hands[$i][$j]);
+        $value = getCardValue($hands[$i][$j]);
+        printCard($suit, $value);
+    }
+}
+
+function printScore($i){
+    global $hands, $scores;
+    echo $scores[$i];
 }
 
 
-function printWinner($players){
-    
+function printWinner($winner){
+    global $players;
+    echo "<br /><br />Winner: " . $players[$winner];
+}
+
+function printCard($suit, $value){
+    echo "<img src='img/cards/" . $suit . "/" . $value . ".png'/>";
 }
 
 function printDeck($deck){    
-    $suits = array("clubs", "diamonds", "hearts", "spades");
-    
-    for($i = 0; $i < 4; $i++){
-        for($j = 1; $j <= 13; $j++)
-            echo "<img src='img/cards/" . $suits[$i] . "/" . $j . ".png'/>";
-        echo "<br />";
-    }
+    global $suits;
     
     for($i = 0; $i < count($deck); $i++){
-        
-        
-        echo "<img src='img/cards/" . $suits[$i] . "/" . $j . ".png'/>";
-        echo "<br />";
+        $suit = getCardSuit($deck[$i]); 
+        $value = getCardValue($deck[$i]);
+        printCard($suit, $value);
+        //echo "<br />";
     }
 }
 
