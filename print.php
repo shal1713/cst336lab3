@@ -28,6 +28,8 @@ function printBoard(){
 
 function printPlayer($i){
     global $players;
+    echo "<img src='img/plaers/" . $player[$i] . ".png'/>";
+    echo "<br />";
     echo $players[$i];
 }
 
