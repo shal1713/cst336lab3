@@ -1,0 +1,27 @@
+table {
+    border: 2px solid white;
+}
+
+div {
+    color: red;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+
+html {
+    background-image: url("../img/background.jpg");
+    background-size: 100% 150%;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: yellow;
+    text-align: center;
+}
+
+
+div2 {
+    color: white;
+}
+

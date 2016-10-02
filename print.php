@@ -23,14 +23,19 @@ function printBoard(){
     
     echo "</table>";
     
+    echo "<div>";
     printWinner(determineWinner());
+    echo "</div>";
+    
 }
 
 function printPlayer($i){
     global $players;
-    echo "<img src='img/plaers/" . $player[$i] . ".png'/>";
+    echo "<img src='img/players/" . $player[$i] . ".jpg'/>";
     echo "<br />";
+    echo "<div2>";
     echo $players[$i];
+    echo "</div2>";
 }
 
 function printHand($i){
@@ -44,13 +49,15 @@ function printHand($i){
 
 function printScore($i){
     global $hands, $scores;
+    echo "<div2>";
     echo $scores[$i];
+    echo "</div2>";
 }
 
 
 function printWinner($winner){
     global $players;
-    echo "<br /><br />Winner: " . $players[$winner];
+    echo "<br />Winner: " . $players[$winner];
 }
 
 function printCard($suit, $value){
